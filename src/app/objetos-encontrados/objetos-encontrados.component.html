@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-2">
+        <h4>{{titulo}}</h4>
+     </div>
+     <div class="col-md-6">
+
+      </div>
+     <div class="col-md-2">
+        <h5>Filtro por nombre de objeto:</h5>
+      </div>
+     <div class="col-md-2">
+        <input type="text" [(ngModel)]="busqueda">
+    </div>
+</div>
+
+<div class="container mx-auto mt-4">
+    <div class="row">
+        <div class="col-md-3 mb-2"  *ngFor="let publi of datos | filtro: busqueda">
+            <div class="card">
+                <img src={{publi.imagen}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{publi.nombre}}</h5>
+                    <a  class="btn btn-primary">Más información</a>
+                    <p class="card-text">{{publi.fechaHora}}</p>
+                    <a *ngIf="isadmin == 2" (click)="eliminarPublicacion(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

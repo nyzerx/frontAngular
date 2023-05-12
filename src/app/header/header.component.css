@@ -1,0 +1,75 @@
+header{
+  font-family: 'Open Sans';
+  color: #fff;
+  background-color: #438EB9;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+header h1{
+  font-size: 20px;
+}
+img{
+  float: left;
+  margin-right: 10px;
+}
+
+/*Estilos navegacion*/
+.profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.profile h4{
+
+  margin: 0;
+  font-size: 20px;
+}
+
+/*Estilos del dropdown*/
+.dropdownmenu{
+  position: relative;
+
+}
+.dropdownmenu > .link:focus,.link:hover{
+  color: black;
+}
+.dropdown-content{
+  width: 150px;
+  position:absolute;
+  left: 0;
+  top: calc(100% + .25rem);
+  background-color: white;
+  padding: .75rem;
+  border-radius: .25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  color: black;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+.dropdownmenu > .link:focus + .dropdown-content{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.listaLink{
+  list-style-type: none;
+  padding: 0%;
+}
+.listaLink > li > a{
+  text-decoration: none;
+  font-size: 14px;
+  color: rgb(124, 122, 122);
+}
+.listaLink > li > a:hover{
+  color: black;
+}

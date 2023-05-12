@@ -1,0 +1,44 @@
+header{
+    display: none;
+}
+
+h4{
+    padding-left: 10px;
+}
+
+.btn-primary{
+    background-color: #25719c;
+    border: 1px solid #62A8D1;
+}
+.row{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.col{
+    margin-top: 10px;
+}
+.objetoCard{
+    width: 13rem;
+    margin-right: 20px;
+    color: white
+}
+
+.card-body{
+    text-align: center;
+    background-color: #62A8D1;
+    color: white;
+}
+
+.seccion-ingresar{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.btn-primary:hover{
+    background-color: #4195c5;
+}
+.card-img-top{
+    width: 305px;
+    height:  200px;
+    text-align: center;
+}

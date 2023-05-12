@@ -1,0 +1,22 @@
+<header *ngIf="isVisible">
+
+  <div class="logo">
+      <img src="../../assets/img/logo.png" alt="ubb logo" width="35">
+      <a [routerLink]="['/home']" ><h1>Universidad del Bío-Bío: Objetos perdidos</h1></a>
+  </div>
+  <div class="profile">
+      <div class="dropdownmenu">
+          <button class="btn btn-lg dropdown-toggle link">
+              <img src="../../assets/img/user.png" alt="">
+          </button>
+          <div class="dropdown-content">
+              <ul class="listaLink">
+                  <li><a href="#">Administar Cuenta</a></li>
+                  <li><a href="#">Administar Mis Reportes</a></li>
+                  <li><a href="#">Objetos Solicitados</a></li>
+              </ul>
+          </div>
+          <a href="/" class="btn btn-primary">Cerrar Sesion</a>
+      </div>
+  </div>
+</header>

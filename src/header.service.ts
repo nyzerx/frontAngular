@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HeaderService {
+
+
+
+
+  isVisibled = true;
+  isVisible = true;
+
+  rol:number = -1;
+
+  setVisibilitd(value: boolean) {
+    this.isVisibled = value;
+  }
+  setVisibility(value: boolean) {
+    this.isVisible = value;
+  }
+  modoadmin(value: number) {
+    this.rol = value;
+  }
+}
