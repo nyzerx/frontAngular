@@ -1,6 +1,6 @@
 <h2>{{titulo}}</h2>
 
-<form id="formulario" [formGroup]="formularioPubli" (submit)="crearPublicacion()">
+<form id="formulario" [formGroup]="formularioPubli" (ngSubmit)="crearPublicacion()">
     <div class="mb-3">
         <label for="inputNombreObj" class="form-label">Nombre del objeto</label>
         <input type="text" class="form-control" id="inputNombreObj" required formControlName="nombreObj">
@@ -37,5 +37,5 @@
         <label for="fechaH" class="form-label">Fecha de hallazgo</label>
         <input type="date" id="fechaH" class="form-control" formControlName="fechaH">
     </div>
-    <button type="submit" class="btn btn-primary">Enviar Reporte</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!formularioPubli.valid">Enviar Reporte</button>
 </form>

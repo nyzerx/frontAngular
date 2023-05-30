@@ -12,6 +12,7 @@ export class UsuariosService {
 
   private urlEndPoint: string = environment.usuariosUrl ;
   private urlApi: string = environment.api;
+  public user: Usuario;
 
   constructor(
     private httpClient:HttpClient
@@ -22,7 +23,7 @@ export class UsuariosService {
   }
 
   getUserByEmailAndPswd(email:String, pswd:String): Observable<any> {
-    return this.httpClient.get<Usuario>(this.urlEndPoint+email+'/'+pswd);
+    return this.httpClient.get<Usuario>('http://localhost:7122/objetosUbb/usuario/'+email+'/'+pswd);
   }
 
   newUsuario(user:Usuario):Observable<Usuario>{

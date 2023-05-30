@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FiltroPipe } from './Clases/filtro.pipe';
 import { NuevoUserComponent } from './nuevo-user/nuevo-user/nuevo-user.component';
 import { LoginComponent } from './login/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsuariosService } from './Service/usuarios.service';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,13 @@ import { LoginComponent } from './login/login/login.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule
   ],
   providers: [
     appRoutingProviders,
-    ObtienePublicacionService
+    ObtienePublicacionService,
+    UsuariosService
   ],
   bootstrap: [AppComponent]
 })

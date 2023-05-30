@@ -12,13 +12,13 @@ import { HeaderService } from 'src/header.service';
 })
 export class LoginComponent implements OnInit{
   listaUsuarios:Usuario[]=[];
-  user: Usuario;
+  
 
   title = 'usuarios';
 
   constructor(
     public fb: FormBuilder,
-    private usuariosService: UsuariosService,
+    public usuariosService: UsuariosService,
     private router: Router,
     private headerService: HeaderService
   ){
@@ -37,9 +37,10 @@ export class LoginComponent implements OnInit{
   obtenerUser(email:String,pswd:String):void{
       this.usuariosService.getUserByEmailAndPswd(email,pswd).subscribe(resp=>{
       console.log('resultado get: ',resp);
-      this.user=resp;
-      if(this.user!=null){
-        this.headerService.modoadmin(this.user.rol);
+      this.usuariosService.user=resp;
+      console.log(this.usuariosService.user);
+      if(this.usuariosService.user!=null){
+        this.headerService.modoadmin(this.usuariosService.user.rol);
         this.irAOtraPagina();
         //return this.user;
       }else{

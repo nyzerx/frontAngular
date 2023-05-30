@@ -20,13 +20,13 @@
   
           <button type="submit"  class="button" (click)="obtenerUser(email.value,pswd.value)">Ingresar</button>
           <br>
-          <div *ngIf="user==null && email.value!='' && pswd.value!=''">
+          <div *ngIf="this.usuariosService.user==null && email.value!='' && pswd.value!=''">
             <div class="alert alert-danger" role="alert" style="text-align: center;">
               Usuario o Contraseña incorrecta!
             </div>
           </div>
             
-          <div *ngIf="user!=null">
+          <div *ngIf="this.usuariosService.user!=null">
             <div class="alert alert-success" role="alert" style="text-align: center;">
               Usuario valido 
               <meta http-equiv="refresh" content="1; irAOtraPagina()" />
