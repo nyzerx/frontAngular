@@ -58,7 +58,6 @@ export class FormularioComponent {
     this.newPublicacion.objeto.imagen_obj = this.formularioPubli.get('n')?.value;
     this.newPublicacion.objeto.id_cat = this.formularioPubli.get('tipoObj')?.value;
 
-    
 
     this._publiS.postPublicacion(this.newPublicacion).subscribe(
       (res)=>{
@@ -70,7 +69,6 @@ export class FormularioComponent {
       }
     );
 
-    
   }
   showSuccess(){
     Swal.fire({
@@ -91,8 +89,6 @@ export class FormularioComponent {
       timer: 2500
     })
   }
-
- 
 
   formatDate(date: Date): string {
     
