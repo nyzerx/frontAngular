@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Clases/Usuario';
 import { UsuariosService } from 'src/app/Service/usuarios.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nuevo-user',
@@ -35,9 +36,9 @@ export class NuevoUserComponent implements OnInit {
       rol:1
     }
     if((nombre==='')||(apellido==='')||(email==='')||(pswd==='')||(telefono===null)){
-      console.log('error');
+      this.datosIncorrecto()
     }else if(!validarCorreo(email)){
-      console.log('errorE');
+      this.correoIncorrecto()
     }else{
       this.usuariosService.newUsuario(this.user).subscribe(resp=>{
       console.log('resultado: ',resp);
@@ -46,7 +47,7 @@ export class NuevoUserComponent implements OnInit {
     });
     }
     function validarCorreo(correo: string): boolean {
-      const expresionRegular = /^[a-zA-Z]+\.[a-zA-Z]+\d{4}@alumnos\.ubiobio\.cl$/;
+      const expresionRegular = /^[^\s@]+@(gmail\.com|alumnos\.ubiobio\.cl)$/;
       return expresionRegular.test(correo);
     }
 
@@ -54,5 +55,25 @@ export class NuevoUserComponent implements OnInit {
 
   irALogin() {
   this.router.navigate(['/']);
+  }
+  correoIncorrecto(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Correo incorrecto',
+      showConfirmButton: false,
+      timer: 1500,
+      width: '500px'
+    })
+  }
+  datosIncorrecto(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Ingrese todos los campos',
+      showConfirmButton: false,
+      timer: 1500,
+      width: '500px'
+    })
   }
 }

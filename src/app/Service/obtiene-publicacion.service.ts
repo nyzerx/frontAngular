@@ -9,12 +9,12 @@ import { environment } from 'src/environments/environment';
 })
 export class ObtienePublicacionService {
 
-
+  publi:Publi;
   constructor(private http:HttpClient) { }
   url= environment.publicacionesUrl;
 
-  url2:string= "https://backgps-production.up.railway.app/objetosUbb/publicacion/Eliminar";
-
+  //url2:string= "https://backgps-production.up.railway.app/objetosUbb/publicacion/Eliminar/";
+  url2='http://localhost:7122/objetosUbb/publicacion/Eliminar/';
   public getPubli(){
     return this.http.get<Publi[]>(this.url);
   }
@@ -23,8 +23,16 @@ export class ObtienePublicacionService {
     return this.http.post<Publi>(this.url,publi);
   }
 
-  deletePublicacionByAdmin(idPublicacion: number, idUsuario: number) {
-    let url = `${this.url2}/${idPublicacion}/${idUsuario}`;
-    return this.http.delete(url);
+  deletePublicacionByAdmin(idPublicacion: number, rol: number){
+    return this.http.delete(this.url2+idPublicacion+'/'+rol);
+  }
+  deleteByUsuario(idPublicacion:number, idUsuario:number){
+    if(this.publi.idp==idPublicacion && this.publi.idu==idUsuario){
+      return this.http.delete(this.url2+idPublicacion+'/'+idUsuario);
+    }else{
+      return console.error();
+      ;
+    }
+    
   }
 }

@@ -4,6 +4,7 @@ import { Router, NavigationExtras} from '@angular/router';
 import { Usuario } from 'src/app/Clases/Usuario';
 import { UsuariosService } from 'src/app/Service/usuarios.service';
 import { HeaderService } from 'src/header.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { HeaderService } from 'src/header.service';
 })
 export class LoginComponent implements OnInit{
   listaUsuarios:Usuario[]=[];
-  
+  user: Usuario;
 
   title = 'usuarios';
 
@@ -37,17 +38,17 @@ export class LoginComponent implements OnInit{
   obtenerUser(email:String,pswd:String):void{
       this.usuariosService.getUserByEmailAndPswd(email,pswd).subscribe(resp=>{
       console.log('resultado get: ',resp);
-      this.usuariosService.user=resp;
-      console.log(this.usuariosService.user);
-      if(this.usuariosService.user!=null){
-        this.headerService.modoadmin(this.usuariosService.user.rol);
+      this.user=resp;
+      if(this.user!=null){
+        this.headerService.modoadmin(this.user.rol);
+        localStorage.setItem('usuarioID', JSON.stringify(this.user.id));
+        localStorage.setItem('usuarioROL', JSON.stringify(this.user.rol));
+        this.userCorrecto();
         this.irAOtraPagina();
-        //return this.user;
-      }else{
-        alert( "No cumple con las validaciones indicadas" );
       }
-    });
-    //return this.user;
+    },(error)=>
+      this.userIncorrecto()
+    );
   }
 
   irANuevoUser() {
@@ -58,12 +59,31 @@ hideHeader() {
 }
 
 irAOtraPagina() {
-  this.router.navigate(['/home']); //this.user
+  this.router.navigate(['/home']); 
 }
 
 
 hideHeaderr() {
   this.headerService.setVisibilitd(false);
 }
+userCorrecto(){
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Inicio correcto de sesión!',
+    showConfirmButton: false,
+    timer: 1500
+  })
+  }
+  userIncorrecto(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'Correo o contraseña incorrecta',
+      showConfirmButton: false,
+      timer: 1500,
+      width: '500px'
+    })
+  }
 }
 

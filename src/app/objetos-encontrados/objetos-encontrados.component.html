@@ -22,7 +22,8 @@
                     <h5 class="card-title">{{publi.nombre}}</h5>
                     <a  class="btn btn-primary">Más información</a>
                     <p class="card-text">{{publi.fechaHora}}</p>
-                    <a *ngIf="isadmin == 2" (click)="eliminarPublicacion(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
+                    <a *ngIf="isadmin == 2" (click)="ePorUser(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
+                    <a *ngIf="(idUser == publi.idu) && (isadmin != 2)" (click)="ePorUser(publi.idp, publi.idu)" class="btn btn-danger">Eliminar</a>
                 </div>
             </div>
         </div>
