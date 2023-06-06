@@ -4,5 +4,6 @@ export const URL_Spring = {
     //url: 'https://backgps-production.up.railway.app/objetosUbb',
     savePublic: '/publicacion/save',
     getCategoria: '/categoria',
-    getTipoPu: '/tipoPu'
+    getTipoPu: '/tipoPu',
+    getPostByUser: "/publicacion/reportes"
 }

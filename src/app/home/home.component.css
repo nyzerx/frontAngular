@@ -10,10 +10,12 @@ h4{
 .btn-primary{
     background-color: #25719c;
     border: 1px solid #62A8D1;
+    margin-bottom: 10px;
 }
 .row{
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 .col{
     margin-top: 10px;

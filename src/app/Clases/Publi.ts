@@ -6,6 +6,8 @@ export interface Publi {
     fechaHora:String;
 }
 
+
+
 export interface IPubli {
     usuario?:number,
     fechaHora:string,
@@ -42,4 +44,17 @@ export interface ICategoria{
 export interface ResponseObject {
     httpStatus: string;
     response: any;
+}
+
+export interface ITipoPu{
+    id_titpopu?:number,
+    nombre_titpoPu:string
+}
+
+export interface IPubliGET{
+    id_pu: number,
+    fechaHora: Date,
+    estado_pu: number
+    objeto: IObjeto,
+    comentarios: any[]
 }

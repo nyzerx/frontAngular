@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit{
       console.log('resultado get: ',resp);
       this.user=resp;
       if(this.user!=null){
+        this.usuariosService.user = resp
         this.headerService.modoadmin(this.user.rol);
         localStorage.setItem('usuarioID', JSON.stringify(this.user.id));
         localStorage.setItem('usuarioROL', JSON.stringify(this.user.rol));

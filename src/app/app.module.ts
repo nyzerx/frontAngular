@@ -15,6 +15,7 @@ import { NuevoUserComponent } from './nuevo-user/nuevo-user/nuevo-user.component
 import { LoginComponent } from './login/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuariosService } from './Service/usuarios.service';
+import { ListaReportesComponent } from './lista-reportes/lista-reportes.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UsuariosService } from './Service/usuarios.service';
     ObjetosEncontradosComponent,
     FiltroPipe,
     NuevoUserComponent,
-    LoginComponent
+    LoginComponent,
+    ListaReportesComponent
   ],
   imports: [
     BrowserModule,

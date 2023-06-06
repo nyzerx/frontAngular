@@ -12,7 +12,7 @@
               <label for="floatingInput">Correo Institucional</label>
             </div>
             <div class="form-floating">
-              <input #pswd type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+              <input #pswd type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" (keydown.enter)="obtenerUser(email.value,pswd.value)">
               <label for="floatingPassword">Contraseña</label>
             </div>
           </form>

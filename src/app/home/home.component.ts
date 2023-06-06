@@ -10,7 +10,7 @@ import { HeaderService } from 'src/header.service';
 export class HomeComponent {
     public titulo:string = "Objetos encontrados";
 
-    constructor(private headerService: HeaderService, private route: ActivatedRoute) {}
+    constructor(private headerService: HeaderService, private route: ActivatedRoute, public router:Router) {}
 
     ngOnInit() {
       this.route.paramMap.subscribe(params => {

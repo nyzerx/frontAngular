@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body">
+
+        <div class="card border-primary mb-3 text-center">
+
+            <div class="card header">Mis Reportes</div>
+            <div class="card-body text-primary">
+                <div class="table-responsive">
+                    <table class="table" *ngIf="reportes && reportes.length">
+                        <thead>
+                            <tr>
+                            
+                                <th>Fecha reporte</th>
+                                <th>Objeto</th>
+                                <th>Estado</th>
+                                <th>Ver comentarios</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let reporte of reportes" >
+                                
+                                <td>{{reporte.fechaHora}}</td>
+                                <td>{{reporte.objeto}}</td>
+                                <td>{{reporte.estado_pu == 2 ? 'En busqueda':'Encontrado'}}</td>
+                                <td><Button class="btn btn-primary">Ver comentarios</Button></td>
+                                <td><button class="btn btn-danger">Eliminar</button></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    
+</div>
