@@ -12,6 +12,7 @@ import { catchError } from 'rxjs/operators';
 export class UsuariosService {
 
   private urlEndPoint: string = environment.usuariosUrl ;
+  //private urlEndPoint: string = 'http://localhost:7122/objetosUbb/usuario/';
   private urlApi: string = environment.api;
   public user: Usuario;
 

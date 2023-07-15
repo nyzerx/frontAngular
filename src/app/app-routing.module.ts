@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login/login.component';
 import { ListaReportesComponent } from './lista-reportes/lista-reportes.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
+  {path:'',component:ObjetosEncontradosComponent},
   {path:'home',component:ObjetosEncontradosComponent},
   {path:'Home',component:ObjetosEncontradosComponent},
   {path:'reportes',component:ListaReportesComponent},
@@ -15,6 +15,7 @@ const routes: Routes = [
   {path:'Reporte/:idUser',component:FormularioComponent},
   {path:'reporte',component:FormularioComponent},
   {path:'newUser',component:NuevoUserComponent},
+  {path:'login',component:LoginComponent},
   {path:'**',component:ObjetosEncontradosComponent}
 ];
 export const appRoutingProviders: any[] = [];

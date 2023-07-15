@@ -6,6 +6,7 @@
   </div>
   <div class="profile">
       <div class="dropdownmenu">
+        <!--
           <button class="btn btn-lg dropdown-toggle link">
               <img src="../../assets/img/user.png" alt="">
           </button>
@@ -15,7 +16,9 @@
                   <li><a href="#">Objetos Solicitados</a></li>
               </ul>
           </div>
-          <a (click)="salir()" class="btn btn-primary">Cerrar Sesion</a>
+          -->
+          <a *ngIf="id !== null" id="salir" (click)="salir()" class="btn btn-danger">Cerrar Sesion</a>
+          <a *ngIf="id === null" id="ingresar" (click)="ingresar()" class="btn btn-primary">Iniciar Sesión</a>
       </div>
   </div>
 </header>

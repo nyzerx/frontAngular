@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit{
         this.headerService.modoadmin(this.user.rol);
         localStorage.setItem('usuarioID', JSON.stringify(this.user.id));
         localStorage.setItem('usuarioROL', JSON.stringify(this.user.rol));
-        this.userCorrecto();
         this.irAOtraPagina();
       }
     },(error)=>
@@ -60,8 +59,16 @@ hideHeader() {
 }
 
 irAOtraPagina() {
-  this.router.navigate(['/home']); 
+  this.userCorrecto();
+  this.router.navigate(['/']).then(() => {
+    window.location.reload();
+  });
 }
+  sinUser() {
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
+  }
 
 
 hideHeaderr() {

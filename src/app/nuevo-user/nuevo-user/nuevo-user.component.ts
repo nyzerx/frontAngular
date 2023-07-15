@@ -23,7 +23,7 @@ export class NuevoUserComponent implements OnInit {
   }
 
   irAOtraPagina() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   crearUser(nombre:String,apellido:String,email:string,pswd:String,telefono:number):void{
@@ -54,7 +54,7 @@ export class NuevoUserComponent implements OnInit {
 }
 
   irALogin() {
-  this.router.navigate(['/']);
+  this.router.navigate(['/login']);
   }
   correoIncorrecto(){
     Swal.fire({

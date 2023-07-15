@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent  {
     dropdown:any = document.getElementById('dropdownMenuButton');
-
+    id = this.idUser;
    constructor(private headerService: HeaderService, private router: Router,private route: ActivatedRoute){}
 
    ngOnInit(): void {
@@ -52,9 +52,12 @@ export class HeaderComponent  {
           ' ',
           'success'
         )
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       }
     })
+  }
+  ingresar(){
+    this.router.navigate(['/login']);
   }
 }
 
