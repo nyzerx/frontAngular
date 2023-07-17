@@ -17,6 +17,7 @@ export class ObjetosEncontradosComponent implements OnInit {
   titulo:string = 'Ultimos objetos reportados';
   datos: Publi[] = [];
   usu:Usuario;
+  ultPub: Publi[] = [];
 
   busqueda: string = '';
 
@@ -35,6 +36,7 @@ export class ObjetosEncontradosComponent implements OnInit {
     this.obtener();
     this.hideHeader();
     this.hideHeaderr();
+    this.ultimasPublis();
   }
 
   public obtener () {
@@ -100,6 +102,14 @@ export class ObjetosEncontradosComponent implements OnInit {
         )
       }
     })
+  }
+  ultimasPublis(){
+      this.sss.ultimasPublis().subscribe((resp)=>{
+        this.ultPub = resp;
+      },
+      err =>{
+        console.log(err);
+      })
   }
 }
 

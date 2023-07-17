@@ -13,7 +13,9 @@
     </div>
 </div>
 
-<div class="container mx-auto mt-4">
+<div class="d-md-flex aling-items-strech">
+
+<div class="mx-auto mt-2 ms-4 col-8">
     <div class="row">
         <div class="col-md-3 mb-2"  *ngFor="let publi of datos | filtro: busqueda">
             <div class="card">
@@ -29,6 +31,32 @@
         </div>
     </div>
 </div>
+
+<div class="mx-auto mt-1 col-3">
+    <h4>Más recientes</h4>
+        <ul class="list-group p-2" *ngFor="let publi of ultPub">
+            <li class="list-group-item aling-item-center">
+                <div class="card" style="max-width: 300px;">
+                    <img src={{publi.imagen}} class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{publi.nombre}}</h5>
+                        <a  class="btn btn-primary">Más información</a>
+                        <p class="card-text">{{publi.fechaHora}}</p>
+                        <a *ngIf="isadmin == 2" (click)="ePorUser(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
+                        <a *ngIf="(idUser == publi.idu) && (isadmin != 2)" (click)="ePorUser(publi.idp, publi.idu)" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+
+            </li>
+            
+          </ul>
+    
+</div>
+</div>
+
+
+
+
 
 
 

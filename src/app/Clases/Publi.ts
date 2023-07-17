@@ -58,3 +58,9 @@ export interface IPubliGET{
     objeto: IObjeto,
     comentarios: any[]
 }
+
+export interface Comentarios{
+    id_co:number,
+    fecha_co:Date,
+    texto_co:string
+}

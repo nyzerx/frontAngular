@@ -35,4 +35,7 @@ export class ObtienePublicacionService {
     }
     
   }
+  ultimasPublis(){
+    return this.http.get<Publi[]>("http://localhost:5478/objetosUbb/publicacion/ultimas");
+  }
 }
