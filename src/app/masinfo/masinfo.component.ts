@@ -20,7 +20,8 @@ export class MasinfoComponent implements OnInit {
   constructor(
     private sss: MasinfoService,
     private headerService: HeaderService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public mf: MasinfoService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class MasinfoComponent implements OnInit {
     this.sss.getPublib(this.headerService.pub).subscribe(respuesta => {
       this.datos = respuesta;
     });
+    console.log(this.datos);
   }
 
   // Método para abrir el formulario flotante

@@ -26,7 +26,7 @@
         <p>Dispositivos electrónicos</p>
     </div>
     <div class="search-item" (click)="FiltarCategoria('Artículos de valor')">
-        <img src="../../assets/icono/joyas.png" alt="Objeto 31">
+        <img src="../../assets/icono/joyas.png" alt="Objeto 3">
         <p>Artículos de valor</p>
     </div>
     <div class="search-item" (click)="FiltarCategoria('Equipos deportivos')">
@@ -41,9 +41,9 @@
         <img src="../../assets/icono/ropa.png" alt="Objeto 6">
         <p>Ropa y accesorios</p>
     </div>
-    <div class="search-item" (click)="FiltarCategoria('Tarjetas de transporte')">
+    <div class="search-item" (click)="FiltarCategoria('Tarjetas')">
         <img src="../../assets/icono/tarjeta.png" alt="Objeto 7">
-        <p>Tarjetas de transporte</p>
+        <p>Tarjetas</p>
     </div>
     <div class="search-item" (click)="FiltarCategoria('Otros')">
         <img src="../../assets/icono/mas.png" alt="Objeto 8">
@@ -65,7 +65,7 @@
       <div class="mx-auto mt-2 ms-md-4 col-md-10 col-lg-12">
         <div class="row">
           <div class="col-md-2 col-sm-4 mb-3" *ngFor="let publi of datos | filtro: busqueda">
-            <div *ngIf="categoria == '' || categoria == publi.nombre" class="card">
+            <div *ngIf="categoria == '' || categoria == publi.categoria" class="card">
                     <img src={{publi.imagen}} class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{publi.nombre}}</h5>

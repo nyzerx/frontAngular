@@ -6,6 +6,7 @@ import { HeaderService } from 'src/header.service';
 import { UsuariosService } from '../Service/usuarios.service';
 import { Usuario } from '../Clases/Usuario';
 import Swal from 'sweetalert2';
+import { MasinfoService } from '../Service/masinfo.service';
 
 @Component({
   selector: 'app-objetos-encontrados',
@@ -43,7 +44,7 @@ export class ObjetosEncontradosComponent implements OnInit {
   }
 
   constructor(private sss:ObtienePublicacionService, private headerService: HeaderService,private route: ActivatedRoute,
-    private us:UsuariosService, private router: Router) { }
+    private us:UsuariosService, private router: Router , private mf: MasinfoService) { }
 
   ngOnInit() {
     this.obtener();
@@ -127,6 +128,11 @@ export class ObjetosEncontradosComponent implements OnInit {
 
   botonmasinfo(id: number){
     this.headerService.Idpub(id);
+    for(var i = 0; i < this.datos.length; i++){
+      if(this.datos[i].idp == id){
+        this.mf.ObtenerPMI(this.datos[i]);
+      }
+    }
     this.router.navigate(['/masinfo']);
 
   }

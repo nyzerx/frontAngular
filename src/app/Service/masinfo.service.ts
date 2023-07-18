@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; // Importa Observable
 import { map } from 'rxjs/operators'; // Importa el operador map
-import { Publib, IPubliGET } from '../Clases/Publi';
+import { Publib, IPubliGET, Publi } from '../Clases/Publi';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +33,11 @@ export class MasinfoService {
       })
     );
   }
+
+  PublicacionMasInfo: Publi;
+
+  ObtenerPMI (P: Publi){
+    this.PublicacionMasInfo=P;
+  }
+
 }
