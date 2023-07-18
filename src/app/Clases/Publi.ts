@@ -4,6 +4,7 @@ export interface Publi {
     imagen:String;
     idu:number;
     fechaHora:String;
+    Categoria:string,
 }
 
 

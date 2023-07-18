@@ -5,6 +5,7 @@ import { ObjetosEncontradosComponent } from './objetos-encontrados/objetos-encon
 import { NuevoUserComponent } from './nuevo-user/nuevo-user/nuevo-user.component';
 import { LoginComponent } from './login/login/login.component';
 import { ListaReportesComponent } from './lista-reportes/lista-reportes.component';
+import { PFrecuentesComponent } from './pfrecuentes/pfrecuentes.component';
 
 const routes: Routes = [
   {path:'',component:ObjetosEncontradosComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'reporte/:idUser',component:FormularioComponent},
   {path:'Reporte/:idUser',component:FormularioComponent},
   {path:'reporte',component:FormularioComponent},
+  {path:'Pfrecuentes',component:PFrecuentesComponent},
   {path:'newUser',component:NuevoUserComponent},
   {path:'login',component:LoginComponent},
   {path:'**',component:ObjetosEncontradosComponent}

@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuariosService } from './Service/usuarios.service';
 import { ListaReportesComponent } from './lista-reportes/lista-reportes.component';
+import { PFrecuentesComponent } from './pfrecuentes/pfrecuentes.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ListaReportesComponent } from './lista-reportes/lista-reportes.componen
     FiltroPipe,
     NuevoUserComponent,
     LoginComponent,
-    ListaReportesComponent
+    ListaReportesComponent,
+    PFrecuentesComponent
   ],
   imports: [
     BrowserModule,
