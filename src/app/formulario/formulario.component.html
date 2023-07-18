@@ -1,41 +1,39 @@
-<h2>{{titulo}}</h2>
+<h2>{{ titulo }}</h2>
 
 <form id="formulario" [formGroup]="formularioPubli" (ngSubmit)="crearPublicacion()">
-    <div class="mb-3">
-        <label for="inputNombreObj" class="form-label">Nombre del objeto</label>
-        <input type="text" class="form-control" id="inputNombreObj" required formControlName="nombreObj">
+  <div class="mb-3">
+    <label for="inputNombreObj" class="form-label">Nombre del objeto</label>
+    <input type="text" class="form-control" id="inputNombreObj" required formControlName="nombreObj">
+  </div>
+  <div class="mb-3">
+    <label for="inputDesc" class="form-label">Descripción del objeto</label>
+    <input type="text" class="form-control" id="inputDesc" required formControlName="descObj">
+  </div>
+  <div class="mb-3">
+    <label for="tipoObjeto" class="form-label">Tipo de objeto</label>
+    <select name="tipoObjeto" id="tipoObjeto" class="form-control" required formControlName="tipoObj">
+      <option value="">Seleccionar...</option>
+      <option value="1">Tarjeta</option>
+      <option value="2">Dispositivo electrónico</option>
+      <option value="3">Vestimenta</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="tipoReporte" class="form-label">Tipo de reporte</label>
+    <select name="tipoReporte" id="tipoReporte" class="form-control" required formControlName="tipoRep">
+      <option value="">Seleccionar...</option>
+      <option value="1">Hallazgo</option>
+      <option value="2">Perdida</option>
+    </select>
+  </div>
 
-    </div>
-    <div class="mb-3">
-        <label for="inputDesc" class="form-label">Descripción del objeto</label>
-        <input type="text" class="form-control" id="inputDesc" required formControlName="descObj">
-    </div>
-    <div class="mb-3">
-        <label for="tipoObjeto" class="form-label">Tipo de objeto</label>
-        <select name="tipoObjeto" id="tipoObjeto" class="form-control" required formControlName="tipoObj">
-            <option value="">Seleccionar...</option>
-            <option value="1">Tarjeta</option>
-            <option value="2">Dispositivio electronico</option>
-            <option value="3">Vestimenta</option>
-        </select>
-    </div>
-    <div class="mb-3">
-        <label for="tipoReporte" class="form-label">Tipo de reporte</label>
-        <select name="tipoReporte" id="tipoReporte" class="form-control" required formControlName="tipoRep">
-            <option value="">Seleccionar...</option>
-            <option value="1">Hallazgo</option>
-            <option value="2">Perdida</option>
-        </select>
-    </div>
-
-    <div class="mb-3">
-        <label for="imagenObj">Subir imagen</label>
-        <input type="file" name="file" id="imagenObj" class="form-control" required accept=".jpg,.png" formControlName="imagenObj">
-
-    </div>
-    <div class="mb-3">
-        <label for="fechaH" class="form-label">Fecha de hallazgo</label>
-        <input type="date" id="fechaH" class="form-control" formControlName="fechaH">
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!formularioPubli.valid">Enviar Reporte</button>
+  <div class="mb-3">
+    <label for="imagenObj">Subir imagen</label>
+    <input type="file" name="file" id="imagenObj" class="form-control" required accept=".jpg,.png" formControlName="imagenObj">
+  </div>
+  <div class="mb-3">
+    <label for="fechaH" class="form-label">Fecha de hallazgo</label>
+    <input type="date" id="fechaH" class="form-control" formControlName="fechaH">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!formularioPubli.valid">Enviar Reporte</button>
 </form>

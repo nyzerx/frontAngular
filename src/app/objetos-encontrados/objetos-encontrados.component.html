@@ -1,22 +1,26 @@
-<div class="row">
-    <div class="col-md-2">
-        <h4>{{titulo}}</h4>
+<div class="container-fluid my-4">
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-md-2">
+          <h4>{{titulo}}</h4>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-2">
+          <h5>Filtro por nombre de objeto:</h5>
+        </div>
+        <div class="col-md-2">
+          <input type="text" [(ngModel)]="busqueda">
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-
-    </div>
-    <div class="col-md-2">
-        <h5>Filtro por nombre de objeto:</h5>
-    </div>
-    <div class="col-md-2">
-        <input type="text" [(ngModel)]="busqueda">
-    </div>
-</div>
-<div id="Categoria">
-    <div class="search-item" (click)="FiltarCategoria('Documentos personales')">
+  </div>
+  
+  <div class="container my-4">
+    <div id="Categoria" class="row">
+      <div class="col-md-3 search-item" (click)="FiltarCategoria('Documentos personales')">
         <img src="../../assets/icono/reanudar.png" alt="Objeto 1">
         <p>Documentos personales</p>
-    </div>
+      </div>
     <div class="search-item" (click)="FiltarCategoria('Dispositivos electrónicos')">
         <img src="../../assets/icono/auriculares.png" alt="Objeto 2">
         <p>Dispositivos electrónicos</p>
@@ -46,46 +50,56 @@
         <p>Otros</p>
     </div>
 </div>
-<div class="FitlroCategoria" *ngIf="categoria!= ''">Categoria selecionada: {{this.categoria}}</div>
 
-<div class="d-md-flex aling-items-strech">
-    <div class="mx-auto mt-2 ms-4 col-8">
+<div class="container my-4" *ngIf="categoria != ''">
+  <div class="row">
+    <div class="col-md-12">
+      Categoria seleccionada: {{ this.categoria }}
+    </div>
+  </div>
+</div>
+
+  <!-- Agrega clase 'container' para centrar y dar margen superior al contenido de las tarjetas -->
+  <div class="container my-4">
+    <div class="d-md-flex align-items-stretch">
+      <div class="mx-auto mt-2 ms-md-4 col-md-10 col-lg-12">
         <div class="row">
-            <div class="col-md-3 mb-2" *ngFor="let publi of datos | filtro: busqueda">
-                <div *ngIf="categoria== '' || categoria == publi.nombre "   class="card">
+          <div class="col-md-2 col-sm-4 mb-3" *ngFor="let publi of datos | filtro: busqueda">
+            <div *ngIf="categoria == '' || categoria == publi.nombre" class="card">
                     <img src={{publi.imagen}} class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{publi.nombre}}</h5>
-                        <a class="btn btn-primary">Más información</a>
-                        <p class="card-text">{{publi.fechaHora}}</p>
+                    <a  (click)="botonmasinfo(publi.idp)" class="btn btn-primary">Más información</a>
+                    <p class="card-text">{{publi.fechaHora}}</p>
                         <a *ngIf="isadmin == 2" (click)="ePorUser(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
                         <a *ngIf="(idUser == publi.idu) && (isadmin != 2)" (click)="ePorUser(publi.idp, publi.idu)"
                             class="btn btn-danger">Eliminar</a>
-                    </div>
                 </div>
             </div>
         </div>
+      </div>
     </div>
-
-    <div class="mx-auto mt-1 col-3">
-        <h4>Más recientes</h4>
-        <ul class="list-group p-2" *ngFor="let publi of ultPub">
-            <li class="list-group-item aling-item-center">
-                <div class="card" style="max-width: 300px;">
-                    <img src={{publi.imagen}} class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{publi.nombre}}</h5>
-                        <a class="btn btn-primary">Más información</a>
-                        <p class="card-text">{{publi.fechaHora}}</p>
-                        <a *ngIf="isadmin == 2" (click)="ePorUser(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
-                        <a *ngIf="(idUser == publi.idu) && (isadmin != 2)" (click)="ePorUser(publi.idp, publi.idu)"
-                            class="btn btn-danger">Eliminar</a>
-                    </div>
-                </div>
-
-            </li>
-
-        </ul>
-
-    </div>
+  </div>
 </div>
+<!-- Agrega clase 'container' para centrar y dar margen superior al contenido de las últimas publicaciones -->
+<div class="container my-4">
+      <h4>Más recientes</h4>
+
+            <div class="d-flex flex-wrap justify-content-center">
+              <ul class="list-group p-2" *ngFor="let publi of ultPub">
+                <li class="list-group-item align-items-center col-md-2 col-sm-4 mb-3">
+                  <div class="card" style="max-width: 300px;">
+                <img src={{publi.imagen}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{publi.nombre}}</h5>
+                    <a  (click)="botonmasinfo(publi.idp)" class="btn btn-primary">Más información</a>
+                    <p class="card-text">{{publi.fechaHora}}</p>
+                    <a *ngIf="isadmin == 2" (click)="ePorUser(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
+                    <a *ngIf="(idUser == publi.idu) && (isadmin != 2)" (click)="ePorUser(publi.idp, publi.idu)"
+                        class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </div>

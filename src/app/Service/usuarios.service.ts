@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { URL_ENDPOINT } from 'src/app/config/config';
 import { Usuario } from '../Clases/Usuario';
@@ -11,21 +11,21 @@ import { catchError } from 'rxjs/operators';
 })
 export class UsuariosService {
 
-  private urlEndPoint: string = environment.usuariosUrl ;
-  //private urlEndPoint: string = 'http://localhost:7122/objetosUbb/usuario/';
+  private urlEndPoint: string = environment.usuariosUrl;
   private urlApi: string = environment.api;
-  public user: Usuario;
+  private _user: Usuario | null = null;
+  private userSubject: BehaviorSubject<Usuario | null> = new BehaviorSubject<Usuario | null>(this._user);
 
-  constructor(
-    private httpClient:HttpClient
-  ) { }
+  public user$: Observable<Usuario | null> = this.userSubject.asObservable();
 
-  getAllUsuarios(): Observable<Usuario[]>{
+  constructor(private httpClient: HttpClient) { }
+
+  getAllUsuarios(): Observable<Usuario[]> {
     return this.httpClient.get<Usuario[]>(this.urlEndPoint);
   }
 
-  getUserByEmailAndPswd(email:String, pswd:String): Observable<any> {
-    return this.httpClient.get<Usuario>(this.urlEndPoint+email+'/'+pswd).pipe(
+  getUserByEmailAndPswd(email: string, pswd: string): Observable<Usuario> {
+    return this.httpClient.get<Usuario>(this.urlEndPoint + email + '/' + pswd).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 404) {
           return throwError('Consulta no encontrada');
@@ -36,10 +36,12 @@ export class UsuariosService {
     );
   }
 
-  newUsuario(user:Usuario):Observable<Usuario>{
-    return this.httpClient.post<Usuario>(this.urlEndPoint,user);
+  newUsuario(user: Usuario): Observable<Usuario> {
+    return this.httpClient.post<Usuario>(this.urlEndPoint, user);
   }
-  idUser(id:number):number{
-    return id;
+
+  setUser(user: Usuario | null): void {
+    this._user = user;
+    this.userSubject.next(this._user);
   }
 }

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{titulo}}</h4>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mx-auto mt-4">
+  <div class="row">
+      <div class="col-md-3">
+          <img src={{datos.objeto.imagen_obj}} class="card-img-top" alt="...">
+      </div>
+      <div class="col-md-4">
+          <h4>{{datos.objeto.nombre_obj}}</h4>
+          <p>Sede: Fernando May</p>
+          <p>Encontrado por: {{datos.usuario.nombre}} {{datos.usuario.apellido}}</p>
+          <p>Fecha: {{datos.fechaHora}}</p>
+      </div>
+      <div class="col-md-4">
+          
+      </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-12">
+      <button (click)="abrirFormulario(datos.id_pu)" class="btn btn-primary">Es mío</button>
+    </div>
+  </div>
+</div>

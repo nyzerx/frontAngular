@@ -1,0 +1,24 @@
+<div class="formulario-flotante">
+    <h2>Formulario Solicitud</h2>
+    <form [formGroup]="formulario" (ngSubmit)="enviarFormularioFlotante()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre" [readonly]="usuarioLogueado">
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" formControlName="apellido" [readonly]="usuarioLogueado">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" [readonly]="usuarioLogueado">
+      </div>
+      <div class="mb-3">
+        <label for="motivo" class="form-label">Motivo</label>
+        <textarea class="form-control" id="motivo" formControlName="motivo"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="button" class="btn btn-secondary" (click)="cerrarFormulario()">Cerrar</button>
+    </form>
+  </div>
+  

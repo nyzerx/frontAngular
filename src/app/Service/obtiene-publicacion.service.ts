@@ -13,7 +13,7 @@ export class ObtienePublicacionService {
   constructor(private http:HttpClient) { }
   url= environment.publicacionesUrl;
 
-  url2:string= "https://objetosback-production.up.railway.app/objetosUbb/publicacion/Eliminar/";
+  url2:string= "http://localhost:5478/objetosUbb/publicacion/Eliminar/";
  
   public getPubli(){
     return this.http.get<Publi[]>(this.url);

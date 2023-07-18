@@ -1,0 +1,54 @@
+/* Agrega aquí los estilos necesarios para el formulario de evaluación */
+
+.formulario-evaluacion {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formulario-evaluacion h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .formulario-evaluacion .mb-3 {
+    margin-bottom: 20px;
+  }
+  
+  .formulario-evaluacion .form-label {
+    font-weight: bold;
+  }
+  
+  .formulario-evaluacion .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .formulario-evaluacion .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .formulario-evaluacion .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Puedes agregar más estilos personalizados según tus necesidades */
+  

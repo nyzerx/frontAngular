@@ -8,39 +8,31 @@ import { IPubliGET } from '../Clases/Publi';
   templateUrl: './lista-reportes.component.html',
   styleUrls: ['./lista-reportes.component.css']
 })
-export class ListaReportesComponent implements OnInit,OnDestroy{
-  
+export class ListaReportesComponent implements OnInit, OnDestroy {
   reportes: IPubliGET[] = [];
-  cont:number = 0;
-  constructor(private userS:UsuariosService,private publiS:PublicacionService){}
+  cont: number = 0;
+  
+  constructor(private userS: UsuariosService, private publiS: PublicacionService) {}
   
   ngOnDestroy(): void {
     this.cont = 0;
   }
   
-  
   ngOnInit(): void {
-    
-    if(this.userS.user.id !=undefined){
-      this.publiS.getPostByIdUser(this.userS.user.id).subscribe(
-        (res) => {
-          this.reportes = res;
-          console.log(this.reportes);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    }else{
-      console.log("error")
-    }
-   
-    
+    this.userS.user$.subscribe((user) => {
+      if (user?.id != undefined) {
+        this.publiS.getPostByIdUser(user.id).subscribe(
+          (res) => {
+            this.reportes = res;
+            console.log(this.reportes);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      } else {
+        console.log('error');
+      }
+    });
   }
-
-  
-
-  
-
-
 }

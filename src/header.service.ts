@@ -13,6 +13,7 @@ export class HeaderService {
   isVisible = true;
 
   rol:number = -1;
+  pub:number = -1;
 
   setVisibilitd(value: boolean) {
     this.isVisibled = value;
@@ -22,5 +23,9 @@ export class HeaderService {
   }
   modoadmin(value: number) {
     this.rol = value;
+  }
+
+  Idpub(value: number) {
+    this.pub = value;
   }
 }

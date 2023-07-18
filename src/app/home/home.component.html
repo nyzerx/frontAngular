@@ -1,19 +1,16 @@
 <app-header></app-header>
-<div class="seccion-ingresar" *ngIf="isVisible">
+<div class="seccion-ingresar">
   <div class="row">
     <div class="col-md-3 col-lg-2">
       <a [routerLink]="['/reporte']" class="btn btn-primary">Reportar un objeto perdido</a>
     </div>
     <div class="col-md-3 col-lg-2">
-      <a [routerLink]="['/Pfrecuentes']" class="btn btn-primary">Preguntas Frecuentes</a>
+      <a [routerLink]="['/PFrecuentes']" class="btn btn-primary">Preguntas Frecuentes</a>
     </div>
     <div class="col-md-3 col-lg-2">
       <a [routerLink]="['/reportes']" class="btn btn-primary">Mis Reportes</a>
     </div>
   </div>
-
 </div>
 
 <router-outlet></router-outlet>
-
-
