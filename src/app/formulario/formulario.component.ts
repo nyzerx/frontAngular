@@ -65,7 +65,7 @@ export class FormularioComponent {
           this.newPublicacion.tipoPublicacion = this.formularioPubli.get('tipoRep')?.value;
           this.newPublicacion.objeto.nombre_obj = this.formularioPubli.get('nombreObj')?.value;
           this.newPublicacion.objeto.descripcion_obj = this.formularioPubli.get('descObj')?.value;
-          this.newPublicacion.objeto.imagen_obj = this.formularioPubli.get('imagenObj')?.value;
+          this.newPublicacion.objeto.imagen_obj =  this.formularioPubli.get('n')?.value;
           this.newPublicacion.objeto.id_cat = this.formularioPubli.get('tipoObj')?.value;
 
           this._publiS.postPublicacion(this.newPublicacion).subscribe(
