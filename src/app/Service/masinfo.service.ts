@@ -8,7 +8,7 @@ import { Publib, IPubliGET, Publi } from '../Clases/Publi';
   providedIn: 'root'
 })
 export class MasinfoService {
-  url = 'http://objetosback-production-f24d.up.railway.app/objetosUbb/publicacion/datos/';
+  url = 'https://objetosback-production-f24d.up.railway.app/objetosUbb/publicacion/datos/';
   
   constructor(private http: HttpClient) {}
   
