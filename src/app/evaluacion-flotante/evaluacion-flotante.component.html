@@ -1,15 +1,14 @@
 <div class="formulario-evaluacion">
-    <h2>Evaluación del Servicio</h2>
-    <form (ngSubmit)="enviarEvaluacion()">
-      <div class="mb-3">
-        <label for="evaluacion" class="form-label">Evaluación (1 a 5)</label>
-        <input type="number" class="form-control" id="evaluacion" required [(ngModel)]="evaluacion" min="1" max="5">
-      </div>
-      <div class="mb-3">
-        <label for="comentario" class="form-label">Comentario</label>
-        <textarea class="form-control" id="comentario" required [(ngModel)]="comentario"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-  </div>
-  
+  <h2>Evaluación del Servicio</h2>
+  <form (ngSubmit)="enviarEvaluacion()">
+    <div class="mb-3">
+      <label for="evaluacion" class="form-label">Evaluación (1 a 5)</label>
+      <input type="number" class="form-control" id="evaluacion" required [(ngModel)]="evaluacion" min="1" max="5">
+    </div>
+    <div class="mb-3">
+      <label for="comentario" class="form-label">Comentario</label>
+      <textarea class="form-control" id="comentario" required [(ngModel)]="comentario"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>

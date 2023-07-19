@@ -5,10 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { IUsuario, Publib } from '../Clases/Publi';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
-import { ISolicitud } from '../Clases/Publi';
 import { EvaluacionFlotanteComponent } from '../evaluacion-flotante/evaluacion-flotante.component';
-import { ObtienePublicacionService } from '../Service/obtiene-publicacion.service';
-import { FormularioSolicitudService } from '../formulario-flotante.service';
 
 @Component({
   selector: 'app-formulario-flotante',
@@ -17,7 +14,7 @@ import { FormularioSolicitudService } from '../formulario-flotante.service';
 })
 export class FormularioFlotanteComponent implements OnInit {
   formulario: FormGroup;
-  newSolicitud: ISolicitud;
+  usuarioLogueado: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -25,36 +22,36 @@ export class FormularioFlotanteComponent implements OnInit {
     private usuariosService: UsuariosService,
     private dialogRef: MatDialogRef<FormularioFlotanteComponent>,
     private dialog: MatDialog, // Agrega el servicio MatDialog
-    @Inject(MAT_DIALOG_DATA) public data: { idp: number },
-    private obtienePublicacionService: ObtienePublicacionService,
-    private formularioSolicitudService: FormularioSolicitudService
+    @Inject(MAT_DIALOG_DATA) private data: { usuario: IUsuario , idp: number}
   ) {
-
-  }
-
-  ngOnInit(): void {
     this.formulario = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       email: ['', Validators.required],
       motivo: ['', Validators.required]
     });
-  this.newSolicitud = {
-    nombre: '',
-    apellido: '',
-    correo: '',
-    motivo: '',
-    idPublicacion: 0
-  };
+  }
+
+  ngOnInit(): void {
+    if (this.data.usuario) {
+      this.usuarioLogueado = true;
+      this.formulario.patchValue({
+        nombre: this.data.usuario.nombre,
+        apellido: this.data.usuario.apellido,
+        email: this.data.usuario.email
+      });
+    }
   }
 
   cerrarFormulario(): void {
     // Cerrar el formulario flotante sin restablecerlo
     this.dialogRef.close();
   }
+
 enviarFormularioFlotante(): void {
   if (this.formulario.valid) {
     // ...
+
     // Mostrar SweetAlert de éxito
     Swal.fire({
       icon: 'success',
@@ -66,55 +63,7 @@ enviarFormularioFlotante(): void {
       // Cierra el formulario flotante sin restablecerlo
       this.dialogRef.close();
     });
-
-    this.actualizarEstadoPublicacion();
-    this.formularioSolicitudService.crearSolicitud(
-      this.formulario.value.nombre,
-      this.formulario.value.apellido,
-      this.formulario.value.email,
-      this.formulario.value.motivo,
-      this.data.idp
-    ).subscribe(
-      respuesta => {
-        console.log('Solicitud guardada correctamente:', respuesta);
-      },
-      error => {
-        console.error('Error al guardar la solicitud:', error);
-      }
-    );
   }
-}
-
-
-
-actualizarEstadoPublicacion() {
-  this.obtienePublicacionService.actualizarEstadoPublicacion(this.data.idp, 1).subscribe(
-    respuesta => {
-      console.log('Estado de publicación actualizado correctamente:', respuesta);
-    },
-    error => {
-      console.error('Error al actualizar el estado de publicación:', error);
-    }
-  );
-}
-
-guardarFormularioSolicitud() {
-  const formularioSolicitud = {
-    nombre: 'Nombre del solicitante', // Aquí debes pasar el nombre del solicitante
-    apellido: 'Apellido del solicitante', // Aquí debes pasar el apellido del solicitante
-    correo: 'correo@solicitante.com', // Aquí debes pasar el correo del solicitante
-    motivo: 'Motivo de la solicitud', // Aquí debes pasar el motivo de la solicitud
-    idPublicacion: this.data.idp
-  };
-
-  this.formularioSolicitudService.guardarFormularioSolicitud(formularioSolicitud).subscribe(
-    respuesta => {
-      console.log('Formulario de solicitud guardado correctamente:', respuesta);
-    },
-    error => {
-      console.error('Error al guardar el formulario de solicitud:', error);
-    }
-  );
 }
 
 abrirEvaluacion() {
@@ -127,5 +76,6 @@ abrirEvaluacion() {
     }
   });
 }
+
 // ...
 }
