@@ -33,4 +33,5 @@ export class HeaderService {
   homeVisibleNO() {
     this.isVisible = false;
   }
+  
 }

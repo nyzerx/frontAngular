@@ -19,6 +19,7 @@ export class HomeComponent {
         console.log(datos); // Aquí puedes utilizar los datos pasados
       });
       localStorage.getItem('usuarioID');
+      this.headerService.homeVisibleNO();
     }
     get isVisible() {
       return this.headerService.isVisibled;
