@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.headerService.homeVisibleNO();
     this.hideHeader();
     this.hideHeaderr();
   }

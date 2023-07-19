@@ -11,7 +11,7 @@ import { UsuariosService } from '../Service/usuarios.service';
 export class HomeComponent {
     public titulo:string = "Objetos encontrados";
 
-    constructor(public userS: UsuariosService, private headerService: HeaderService, private route: ActivatedRoute, public router:Router) {}
+    constructor(public userS: UsuariosService, public headerService: HeaderService, private route: ActivatedRoute, public router:Router) {}
 
     ngOnInit() {
       this.route.paramMap.subscribe(params => {

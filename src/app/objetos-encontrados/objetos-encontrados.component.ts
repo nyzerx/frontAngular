@@ -47,6 +47,7 @@ export class ObjetosEncontradosComponent implements OnInit {
     private us:UsuariosService, private router: Router , private mf: MasinfoService) { }
 
   ngOnInit() {
+    this.headerService.homeVisibleSI();
     this.obtener();
     this.hideHeader();
     this.hideHeaderr();

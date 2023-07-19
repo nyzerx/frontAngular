@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Clases/Usuario';
 import { UsuariosService } from 'src/app/Service/usuarios.service';
 import Swal from 'sweetalert2';
+import { HeaderService } from 'src/header.service';
 
 @Component({
   selector: 'app-nuevo-user',
@@ -15,11 +16,12 @@ export class NuevoUserComponent implements OnInit {
   constructor(
     private usuariosService: UsuariosService,
     private router: Router
+    ,public headerService: HeaderService
   ){
     console.log('se construyo');
   }
   ngOnInit(): void {
-
+    this.headerService.homeVisibleNO();
   }
 
   irAOtraPagina() {

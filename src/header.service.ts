@@ -6,9 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class HeaderService {
 
-
-
-
   isVisibled = true;
   isVisible = true;
 
@@ -27,5 +24,13 @@ export class HeaderService {
 
   Idpub(value: number) {
     this.pub = value;
+  }
+
+  homeVisible:boolean = false;
+  homeVisibleSI() {
+    this.homeVisible = true;
+  }
+  homeVisibleNO() {
+    this.isVisible = false;
   }
 }
