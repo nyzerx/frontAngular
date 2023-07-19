@@ -42,24 +42,6 @@ export class FormularioFlotanteComponent implements OnInit {
         // Cierra el formulario flotante sin restablecerlo
         this.dialogRef.close();
       });
-
-      // Crear objeto con datos del formulario
-      const formularioSolicitud = {
-        nombre: this.formulario.value.nombre,
-        apellido: this.formulario.value.apellido,
-        correo: this.formulario.value.correo,
-        motivo: this.formulario.value.motivo
-      };
-
-      // Llamar al servicio para enviar el formulario
-      this.formularioSolicitudService.crearSolicitud(formularioSolicitud).subscribe(
-        (respuesta) => {
-          console.log('Formulario de solicitud guardado correctamente:', respuesta);
-        },
-        (error) => {
-          console.error('Error al guardar el formulario de solicitud:', error);
-        }
-      );
     }
   }
 }
