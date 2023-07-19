@@ -32,7 +32,7 @@ export class FormularioFlotanteComponent implements OnInit {
   }
 
   enviarFormularioFlotante(): void {
-    if (this.formulario.valid) {
+    
       // Mostrar SweetAlert de éxito
       Swal.fire({
         icon: 'success',
@@ -42,6 +42,6 @@ export class FormularioFlotanteComponent implements OnInit {
         // Cierra el formulario flotante sin restablecerlo
         this.dialogRef.close();
       });
-    }
+    
   }
 }
