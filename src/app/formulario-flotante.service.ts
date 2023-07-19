@@ -7,7 +7,7 @@ import { ISolicitud } from './Clases/Publi';
   providedIn: 'root'
 })
 export class FormularioSolicitudService {
-  url = 'https://objetosback-production-f24d.up.railway.app/formulario-solicitud/guardar';
+  url = 'https://objetosback-production-f24d.up.railway.app/objetosUbb/formulario-solicitud/guardar';
 
   constructor(private http: HttpClient) {}
 
