@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Publi } from '../Clases/Publi';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -37,5 +38,13 @@ export class ObtienePublicacionService {
   }
   ultimasPublis(){
     return this.http.get<Publi[]>("http://localhost:5478/objetosUbb/publicacion/ultimas");
+  }
+
+  public actualizarEstadoPublicacion(idPublicacion: number, nuevoEstado: number): Observable<any> {
+    const body = {
+      estado_pu: nuevoEstado
+    };
+
+    return this.http.put(this.url + idPublicacion, body);
   }
 }

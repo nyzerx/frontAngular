@@ -14,8 +14,7 @@ import { EvaluacionFlotanteComponent } from '../evaluacion-flotante/evaluacion-f
 export class MasinfoComponent implements OnInit {
   titulo: string = 'Objetos encontrados';
   datos: Publib;
-  nombreCompleto: string = '';
-  detalle: string = '';
+  idp: number;
 
   constructor(
     private sss: MasinfoService,
@@ -29,36 +28,39 @@ export class MasinfoComponent implements OnInit {
   }
 
   public obtener() {
-    this.sss.getPublib(this.headerService.pub).subscribe(respuesta => {
-      this.datos = respuesta;
-    });
-    console.log(this.datos);
+    this.sss.getPublib(this.headerService.pub).subscribe(
+      respuesta => {
+        this.datos = respuesta;
+        this.idp = respuesta.idp;
+      },
+      error => {
+        console.error('Error al obtener la publicación:', error);
+        // Manejar el caso de error de acuerdo a tus necesidades
+      }
+    );
   }
 
   // Método para abrir el formulario flotante
-  abrirFormulario(id_pu: number) {
-    const dialogRef = this.dialog.open(FormularioFlotanteComponent, {
-      width: '400px',
-      data: {
-        nombreCompleto: this.nombreCompleto,
-        detalle: this.detalle,
-        idPublicacion: id_pu, // Pasamos el ID de la publicación al formulario flotante
-      }
-    });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'correcto') {
-        // Muestra la notificación de solicitud correcta
-        alert('¡Solicitud correcta!');
+  abrirFormulario(): void {
+      const dialogRef = this.dialog.open(FormularioFlotanteComponent, {
+        data: { idp: this.idp }
+      });
 
-        // Abre la ventana de evaluación después de un segundo (puedes ajustar el tiempo según tus necesidades)
-        setTimeout(() => {
-          this.abrirEvaluacion();
-        }, 1000);
-      } else if (result === 'erroneo') {
-        // Si la solicitud es errónea, no necesitas hacer nada aquí ya que el componente del formulario mostrará el mensaje de error.
-      }
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 'correcto') {
+          // Muestra la notificación de solicitud correcta
+          alert('¡Solicitud correcta!');
+
+          // Abre la ventana de evaluación después de un segundo (puedes ajustar el tiempo según tus necesidades)
+          setTimeout(() => {
+            this.abrirEvaluacion();
+          }, 1000);
+        } else if (result === 'erroneo') {
+          // Si la solicitud es errónea, no necesitas hacer nada aquí ya que el componente del formulario mostrará el mensaje de error.
+        }
+      });
+    
   }
 
   // Método para abrir la ventana de evaluación

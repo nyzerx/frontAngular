@@ -3,15 +3,15 @@
     <form [formGroup]="formulario" (ngSubmit)="enviarFormularioFlotante()">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" formControlName="nombre" [readonly]="usuarioLogueado">
+        <input type="text" class="form-control" id="nombre" formControlName="nombre">
       </div>
       <div class="mb-3">
         <label for="apellido" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="apellido" formControlName="apellido" [readonly]="usuarioLogueado">
+        <input type="text" class="form-control" id="apellido" formControlName="apellido">
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" formControlName="email" [readonly]="usuarioLogueado">
+        <input type="email" class="form-control" id="email" formControlName="email">
       </div>
       <div class="mb-3">
         <label for="motivo" class="form-label">Motivo</label>

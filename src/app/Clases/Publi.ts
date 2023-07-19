@@ -1,11 +1,30 @@
 export interface Publi {
     idp:number;
-    nombre:String;
-    imagen:String;
+    nombre:string;
+    imagen:string;
+    descripcion:string;
     idu:number;
-    fechaHora:String;
-    Categoria:String;
+    fechaHoraString:string;
+    nombreUsuario:string;
+    apellidoUsuario:string;
+    categoria:categoria;
+    estado_pu:number;
 }
+
+export interface IPubliGET {
+    idp: number;
+    fechaHora: string;
+    estado_pu: number;
+    objeto: objetos;
+    descripcion: string;
+    comentarios: Comentarios[];
+    idu: UsuarioLite;
+    nombreUsuario: string;
+    apellidoUsuario: string;
+    fechaHoraString: string;
+    categoria: categoria;
+  }
+  
 
 export interface IPubli {
     usuario?: number;
@@ -15,16 +34,25 @@ export interface IPubli {
     objeto: IObjeto;
     comentarios: any[];
   }
-  
 
-  export interface Publib {
-    id_pu: number;
-    fechaHora: string;
-    objeto: IObjeto;
-    estado_pu: number;
-    usuario: UsuarioLite;
+  export interface ISolicitud {
+    nombre: string;
+    apellido: string;
+    correo: string;
+    motivo: string;
+    idPublicacion: number;
   }
   
+  export interface Publib {
+    idp: number;
+    fechaHoraString: string;
+    objeto: IObjeto;
+    estado_pu: number;
+    idu: UsuarioLite;
+    nombreUsuario: string;
+    apellidoUsuario: string;
+    categoria: categoria;
+  }
   export interface tipoPublicacion {
     id_tipopu: number;
     nombre_tipopu: String;
@@ -43,6 +71,7 @@ export interface IPubli {
     imagen_obj: string;
     id_cat: number;
     misUbicaciones: misUbicaciones[];
+    categoria: categoria;
   }
   
   
@@ -98,8 +127,8 @@ export interface tipoUbicacion {
   export interface IObjeto {
     id_obj?: number;
     nombre_obj: string;
-    descripcion_obj?: string;
     imagen_obj: string;
+    descripcion_obj: string;
     id_cat?: number;
     misUbicaciones?: IUbicacion[];
     categoria?: ICategoria;
@@ -130,18 +159,10 @@ export interface ITipoPu{
     nombre_titpoPu:string
 }
 
-export interface IPubliGET {
-    id_pu: number;
-    fechaHora: string;
-    estado_pu: number;
-    objeto: objetos;
-    comentarios: Comentarios[];
-    usuario: Usuario
-  }
-  
+
   export interface UsuarioLite {
-    nombre: String;
-    apellido: String;
+    nombreUsuario: string;
+    apellidoUsuario: string;
   }
   
 

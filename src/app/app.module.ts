@@ -22,10 +22,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuariosService } from './Service/usuarios.service';
 import { ListaReportesComponent } from './lista-reportes/lista-reportes.component';
 import { MasinfoComponent } from './masinfo/masinfo.component';
+import { MasinfoService } from './Service/masinfo.service';
 import { Router } from '@angular/router';
 import { FormularioFlotanteComponent } from './formulario-flotante/formulario-flotante.component';
 import { EvaluacionFlotanteComponent } from './evaluacion-flotante/evaluacion-flotante.component';
-import { PFrecuentesComponent } from './pfrecuentes/pfrecuentes.component'; // Importa el módulo Router desde '@angular/router'
+import { PFrecuentesComponent } from './pfrecuentes/pfrecuentes.component';
+import { HeaderService } from '../header.service';
+import { FormularioSolicitudService } from './formulario-flotante.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { PFrecuentesComponent } from './pfrecuentes/pfrecuentes.component'; // I
     appRoutingProviders,
     ObtienePublicacionService,
     UsuariosService,
+    MasinfoService,
+    HeaderService,
+    FormularioSolicitudService,
   ],
   bootstrap: [AppComponent],
 })

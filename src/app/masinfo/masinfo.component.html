@@ -10,12 +10,16 @@
 <div class="container mx-auto mt-4">
   <div class="row">
       <div class="col-md-3">
-          <img src={{this.mf.PublicacionMasInfo.imagen}} class="card-img-top" alt="...">
+        <img src={{this.mf.PublicacionMasInfo.imagen}} class="card-img-top" alt="...">
       </div>
       <div class="col-md-4">
-          <h4>{{this.mf.PublicacionMasInfo.nombre}}</h4>
+        <h4>{{this.mf.PublicacionMasInfo.nombre}}</h4>
+          <p>Descripción: {{this.mf.PublicacionMasInfo.descripcion}}</p>
           <p>Sede: Fernando May</p>
-          <p>Fecha: {{datos.fechaHora}}</p>
+          <p>Encontrado por usuario con ID: {{this.mf.PublicacionMasInfo.idu}}</p>
+          <p>Fecha: {{this.mf.PublicacionMasInfo.fechaHoraString}}</p>
+          <p>Categoría: {{this.mf.PublicacionMasInfo.categoria}}</p>
+          <p>Estado de Publicacion: {{this.mf.PublicacionMasInfo.estado_pu}}</p>
       </div>
       <div class="col-md-4">
           
@@ -26,7 +30,7 @@
 <div class="container my-4">
   <div class="row">
     <div class="col-md-12">
-      <button (click)="abrirFormulario(datos.id_pu)" class="btn btn-primary">Es mío</button>
+      <button (click)="abrirFormulario()" class="btn btn-primary">Es mío</button>
     </div>
   </div>
 </div>

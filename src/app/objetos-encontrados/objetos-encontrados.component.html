@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{publi.nombre}}</h5>
                     <a  (click)="botonmasinfo(publi.idp)" class="btn btn-primary">Más información</a>
-                    <p class="card-text">{{publi.fechaHora}}</p>
+                    <p class="card-text">{{publi.fechaHoraString}}</p>
                         <a *ngIf="isadmin == 2" (click)="ePorUser(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
                         <a *ngIf="(idUser == publi.idu) && (isadmin != 2)" (click)="ePorUser(publi.idp, publi.idu)"
                             class="btn btn-danger">Eliminar</a>
@@ -93,7 +93,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{publi.nombre}}</h5>
                     <a  (click)="botonmasinfo(publi.idp)" class="btn btn-primary">Más información</a>
-                    <p class="card-text">{{publi.fechaHora}}</p>
+                    <p class="card-text">{{publi.fechaHoraString}}</p>
                     <a *ngIf="isadmin == 2" (click)="ePorUser(publi.idp, 2)" class="btn btn-danger">Eliminar</a>
                     <a *ngIf="(idUser == publi.idu) && (isadmin != 2)" (click)="ePorUser(publi.idp, publi.idu)"
                         class="btn btn-danger">Eliminar</a>
