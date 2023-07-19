@@ -7,24 +7,19 @@ import { ISolicitud } from './Clases/Publi';
   providedIn: 'root'
 })
 export class FormularioSolicitudService {
-  urlGuardarSolicitud = 'https://objetosback-production-f24d.up.railway.app/objetosUbb/solicitud/guardar';
-  urlCrearSolicitud = 'https://objetosback-production-f24d.up.railway.app/objetosUbb/solicitud/crear';
+  url = 'https://objetosback-production-f24d.up.railway.app/formulario-solicitud/guardar';
 
   constructor(private http: HttpClient) {}
 
-  guardarFormularioSolicitud(solicitud: ISolicitud): Observable<any> {
-    return this.http.post(this.urlGuardarSolicitud, solicitud);
-  }
-
-  crearSolicitud(nombre: string, apellido: string, correo: string, motivo: string, idPublicacion: number): Observable<any> {
+  crearSolicitud(formularioData: any): Observable<any> {
     const solicitud: ISolicitud = {
-      nombre: nombre,
-      apellido: apellido,
-      correo: correo,
-      motivo: motivo,
-      idPublicacion: idPublicacion
+      nombre: formularioData.nombre,
+      apellido: formularioData.apellido,
+      correo: formularioData.correo,
+      motivo: formularioData.motivo,
+      idPublicacion: formularioData.idPublicacion
     };
 
-    return this.http.post(this.urlCrearSolicitud, solicitud);
+    return this.http.post(this.url, solicitud);
   }
 }
