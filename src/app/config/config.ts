@@ -1,6 +1,6 @@
-export const URL_ENDPOINT = 'https://objetosback-production.up.railway.app/objetosUbb/usuario/';
+export const URL_ENDPOINT = 'objetosback-production-f24d.up.railway.app/objetosUbb/usuario/';
 export const URL_Spring = {
-    url:'http://localhost:5478/objetosUbb',
+    url:'http://objetosback-production-f24d.up.railway.app/objetosUbb/',
     savePublic: '/publicacion/save',
     getCategoria: '/categoria',
     getTipoPu: '/tipoPu',

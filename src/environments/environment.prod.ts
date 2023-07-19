@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  usuariosUrl: 'https://localhost:5478/objetosUbb/usuario/',
-  publicacionesUrl: 'http://localhost:5478/objetosUbb/publicacion/nf',
-  api : 'https://localhost:5478/objetosUbb/'
+  usuariosUrl: 'https://objetosback-production-f24d.up.railway.app/objetosUbb/usuario/',
+  publicacionesUrl: 'http://objetosback-production-f24d.up.railway.app/objetosUbb/publicacion/nf',
+  api : 'https://objetosback-production-f24d.up.railway.app/objetosUbb/'
 };
