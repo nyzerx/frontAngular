@@ -40,7 +40,7 @@ export interface IPubli {
     apellido: string;
     correo: string;
     motivo: string;
-    idPublicacion: number;
+    idPublicacion?: number;
   }
   
   export interface Publib {

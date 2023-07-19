@@ -29,7 +29,8 @@ export class FormularioFlotanteComponent implements OnInit {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       correo: ['', Validators.required],
-      motivo: ['', Validators.required]
+      motivo: ['', Validators.required],
+      idPublicacion: [this.data.idp]
     });
   }
 
