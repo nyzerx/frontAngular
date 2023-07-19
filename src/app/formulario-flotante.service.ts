@@ -16,8 +16,7 @@ export class FormularioSolicitudService {
       nombre: formularioData.nombre,
       apellido: formularioData.apellido,
       correo: formularioData.correo,
-      motivo: formularioData.motivo,
-      idPublicacion: formularioData.idPublicacion
+      motivo: formularioData.motivo
     };
 
     return this.http.post(this.url, solicitud);

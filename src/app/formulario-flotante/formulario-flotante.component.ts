@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { ISolicitud } from '../Clases/Publi';
 import { FormularioSolicitudService } from '../formulario-flotante.service';
@@ -13,14 +12,11 @@ import { FormularioSolicitudService } from '../formulario-flotante.service';
 })
 export class FormularioFlotanteComponent implements OnInit {
   formulario: FormGroup;
-  newSolicitud: ISolicitud;
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
     private dialogRef: MatDialogRef<FormularioFlotanteComponent>,
-    private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: { idp: number },
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private formularioSolicitudService: FormularioSolicitudService
   ) {}
 
@@ -29,8 +25,7 @@ export class FormularioFlotanteComponent implements OnInit {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       correo: ['', Validators.required],
-      motivo: ['', Validators.required],
-      idPublicacion: ['1']
+      motivo: ['', Validators.required]
     });
   }
 
