@@ -37,7 +37,7 @@ export class ObtienePublicacionService {
     
   }
   ultimasPublis(){
-    return this.http.get<Publi[]>("http://localhost:5478/objetosUbb/publicacion/ultimas");
+    return this.http.get<Publi[]>("https://objetosback-production-f24d.up.railway.app/objetosUbb/publicacion/ultimas");
   }
 
   public actualizarEstadoPublicacion(idPublicacion: number, nuevoEstado: number): Observable<any> {
